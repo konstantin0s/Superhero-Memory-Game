@@ -45,6 +45,15 @@ $(document).ready(function(){
 
 
   const cardz = document.querySelectorAll('.card');
+  // let score = document.querySelector('#pairs_guessed');
+  // let clicked =  document.querySelector('#pairs_clicked');
+  let score = 0;
+  let clicked = 0;
+  let win = 12;
+
+  if (score === win) {
+    document.querySelector('#pairs_clicked').innerHTML = "You Won!!!";
+  }
 
   let hasFlippedCard = false;
   let firstCard, secondCard;
@@ -63,27 +72,39 @@ $(document).ready(function(){
      var element = document.getElementsByClassName("card");
      var dataset = element.dataset;
 //indentify cards
-if (firstCard.dataset.cardName === 
-    secondCard.dataset.cardName) {
-      firstCard.removeEventListener('click', flipCard);
-      secondCard.removeEventListener('click', flipCard);
-    } else {
-      //not a match
-      setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
-      }, 1500);
-    }
-        console.log(secondCard.dataset.cardName);
-        console.log(firstCard.dataset.cardName);
-
-
-
-
+checkForMatch();
    }
   
   }
+
+  function checkForMatch() {
+    if (firstCard.dataset.cardName === secondCard.dataset.cardName) {
+      disableCards();
+      score += 1;
+      $("#pairs_guessed").text(score);
+      console.log(score);
+      console.log(firstCard.dataset.cardName);
+      console.log(secondCard.dataset.cardName);
+    } else {
+      //not a match
+      unflipCards();
+      clicked += 1;
+      $("#pairs_clicked").text(clicked);
+      console.log(clicked);
+    }
+  }
+
+  function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+  }
   
+  function unflipCards() {
+    setTimeout(() => {
+      firstCard.classList.remove('flip');
+      secondCard.classList.remove('flip');
+    }, 1500);
+  }
   cardz.forEach(card => card.addEventListener('click', flipCard));
 
 });
