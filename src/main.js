@@ -63,10 +63,21 @@ $(document).ready(function(){
      var element = document.getElementsByClassName("card");
      var dataset = element.dataset;
 //indentify cards
+if (firstCard.dataset.cardName === 
+    secondCard.dataset.cardName) {
+      firstCard.removeEventListener('click', flipCard);
+      secondCard.removeEventListener('click', flipCard);
+    } else {
+      //not a match
+      setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+      }, 1500);
+    }
         console.log(secondCard.dataset.cardName);
         console.log(firstCard.dataset.cardName);
 
-        
+
 
 
    }
