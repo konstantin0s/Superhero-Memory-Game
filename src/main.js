@@ -43,14 +43,14 @@ $(document).ready(function(){
     // TODO: write some code here
   });
 
+
   const cardz = document.querySelectorAll('.card');
 
   let hasFlippedCard = false;
   let firstCard, secondCard;
-
+  
   function flipCard() {
-   this.classList.toggle('flip');
-
+   this.classList.add('flip');
    if (!hasFlippedCard) {
      //first click;
      hasFlippedCard = true;
@@ -60,13 +60,22 @@ $(document).ready(function(){
      hasFlippedCard = false;
      secondCard = this;
 
-    //  console.log(firstCard, secondCard);
-        // console.log(secondCard.dataset.data-card-name);
-   }
-  }
+     var element = document.getElementsByClassName("card");
+     var dataset = element.dataset;
+//indentify cards
+        console.log(secondCard.dataset.cardName);
+        console.log(firstCard.dataset.cardName);
 
+        
+
+
+   }
+  
+  }
+  
   cardz.forEach(card => card.addEventListener('click', flipCard));
 
 });
+
 
 

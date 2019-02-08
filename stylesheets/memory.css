@@ -12,17 +12,19 @@ html {
 	margin:0px auto;
   border-radius: 84px;
   box-shadow: inset 0px 0px 20px -6px rgba(97,89,97,1);
-  perspective: 100px;
-}
-
-.card.flip {
-  transform: rotateY(180deg);
+  perspective: 1000px;
 }
 
 .card {
+  /* position: relative; */
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform .5s;
+}
+
+.card:active {
+  transform: scale(.97);
+  transition: transform .2s;
 }
 
 .card .back {
@@ -36,7 +38,11 @@ html {
   backface-visibility: hidden;
 }
 
-.front {
+.card .front {
+  transform: rotateY(180deg);
+} 
+
+.card.flip {
   transform: rotateY(180deg);
 }
 
@@ -45,6 +51,7 @@ html {
   pointer-events: none;
 
 }
+
 
 #score {
   background-color: rgba(215, 44, 44, 0.8);;
