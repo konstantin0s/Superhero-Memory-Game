@@ -13,19 +13,22 @@ html {
   border-radius: 84px;
   box-shadow: inset 0px 0px 20px -6px rgba(97,89,97,1);
   perspective: 1000px;
-}
+} 
 
-.card {
-  /* position: relative; */
+.card { 
+  width: calc(25% -10xp);
+  height: calc(33.333% -10px);
+  position: relative;
   transform: scale(1);
-  transform-style: preserve-3d;
+  transform-style:  preserve-3d;
   transition: transform .5s;
-}
+ } 
 
-.card:active {
+
+ .card:active {
   transform: scale(.97);
   transition: transform .2s;
-}
+} 
 
 .card .back {
   background-color: #456783;
@@ -35,24 +38,32 @@ html {
 	margin:10px;
 	padding:20px;
   font-size:64px;
-  backface-visibility: hidden;
+  backface-visibility: hidden;  
 }
 
-.card .front {
+.front {
   transform: rotateY(180deg);
 } 
 
-.card.flip {
-  transform: rotateY(180deg);
+
+.front,
+.back {
+  position: relative;
+  backface-visibility: hidden;  
+  width: 100%;
+  height: 100%;
 }
+
+ .card.flip {
+   transform: rotateY(180deg);
+}  
 
 .card .front.blocked,
 .card .back.blocked {
   pointer-events: none;
 
 }
-
-
+  
 #score {
   background-color: rgba(215, 44, 44, 0.8);;
   border-radius: 8px;
@@ -90,4 +101,18 @@ p {
   font-weight: bolder;
   font-size: 20px;
   text-align: center;
+}
+
+#text {
+  position: relative;
+  background-color: rgba(215, 44, 44, 0.8);;
+  border-radius: 8px;
+  font-size: 30px;
+  font-family: Arial;
+  /* width:200px;
+  left: 150px;
+  margin-left: 4px;
+  top: 130px;
+  text-align: center; */
+
 }

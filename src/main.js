@@ -41,10 +41,24 @@ $(document).ready(function(){
   // Bind the click event of each element to a function
   $('.back').click(function () {
     // TODO: write some code here
+
   });
 
+  $('.card').click(function () {
+    $.each($(this).children(),function(idx, value){
+      $(value).toggleClass('back');
+      $(value).toggleClass('front');
+      setTimeout(() => {
+        $(value).toggleClass('back');
+        $(value).toggleClass('front');
+      }, 1500);
+    })
+  });
 
   const cardz = document.querySelectorAll('.card');
+  cardz.forEach(card => card.addEventListener('click', flipCard));
+
+
   // let score = document.querySelector('#pairs_guessed');
   // let clicked =  document.querySelector('#pairs_clicked');
   let score = 0;
@@ -68,7 +82,6 @@ $(document).ready(function(){
      //second click
      hasFlippedCard = false;
      secondCard = this;
-
      var element = document.getElementsByClassName("card");
      var dataset = element.dataset;
 //indentify cards
@@ -82,21 +95,24 @@ checkForMatch();
       disableCards();
       score += 1;
       $("#pairs_guessed").text(score);
+      $("#text").text('You have a pair :)');
       console.log(score);
       console.log(firstCard.dataset.cardName);
       console.log(secondCard.dataset.cardName);
     } else {
       //not a match
-      unflipCards();
       clicked += 1;
+      unflipCards();
       $("#pairs_clicked").text(clicked);
       console.log(clicked);
+      
     }
   }
 
   function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
+    
   }
   
   function unflipCards() {
@@ -105,9 +121,8 @@ checkForMatch();
       secondCard.classList.remove('flip');
     }, 1500);
   }
-  cardz.forEach(card => card.addEventListener('click', flipCard));
+
+
+
 
 });
-
-
-

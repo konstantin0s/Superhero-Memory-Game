@@ -1,8 +1,8 @@
 var MemoryGame = function (cards) {
   this.cards = cards;
-  // this.pickedCards = pickedCards;
-  // this.pairsClicked = pairsClicked;
-  // this.pairGuessed = pairGuessed;
+  this.pickedCards = [];
+  this.pairsClicked = 0;
+  this.pairGuessed = 0;
 };
 
 //suffle works > keep this
@@ -26,4 +26,10 @@ MemoryGame.prototype.checkIfPair = function (firstCard, secondCard) {
 MemoryGame.prototype.isFinished = function () {
 };
 
+//use to flip cards.
 
+// function(){
+//   $(card).children(".back").toggleClass("front flip" );
+//   $(card).children(".front").toggleClass("front back");
+//   flipCard()
+// }
