@@ -62,12 +62,18 @@ $(document).ready(function(){
 
   // let score = document.querySelector('#pairs_guessed');
   // let clicked =  document.querySelector('#pairs_clicked');
+
+
   let score = 0;
   let clicked = 0;
   let win = 12;
+  let lost = 24;
 
-  if (score === win) {
-    document.querySelector('#pairs_clicked').innerHTML = "You Won!!!";
+  if (score == win) {
+    $("#pairs_guessed").text("You Won!!!");
+  }
+  if (clicked == lost) {
+    $("#pairs_guessed").text("Game Over!!!");
   }
 
   let hasFlippedCard = false;

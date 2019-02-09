@@ -21,7 +21,7 @@ html {
   position: relative;
   transform: scale(1);
   transform-style:  preserve-3d;
-  transition: transform .5s;
+  transition: transform 1s;
  } 
 
 
@@ -109,10 +109,5 @@ p {
   border-radius: 8px;
   font-size: 30px;
   font-family: Arial;
-  /* width:200px;
-  left: 150px;
-  margin-left: 4px;
-  top: 130px;
-  text-align: center; */
 
 }
