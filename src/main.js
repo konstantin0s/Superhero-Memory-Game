@@ -28,7 +28,7 @@ var cards = [
 $(document).ready(function(){
   var memoryGame = new MemoryGame(cards);
   var html = '';
-  memoryGame.cards.forEach(function (pic) {
+  memoryGame.shuffleCards(cards).forEach(function (pic) {
     html += '<div class="card" data-card-name="'+ pic.name +'">';
     html += '  <div class="back" name="'+ pic.img +'"></div>';
     html += '  <div class="front" style="background: url(img/'+ pic.img +') no-repeat"></div>';
@@ -44,6 +44,7 @@ $(document).ready(function(){
 
   });
 
+  //show clicked cards
   $('.card').click(function () {
     $.each($(this).children(),function(idx, value){
       $(value).toggleClass('back');
